@@ -1,0 +1,28 @@
+{
+  "name": "foodbank-fullstack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:hnobi/foodbank-backend.git",
+  "author": "hammed noibi <hnobi08@yahoo.com>",
+  "license": "MIT",
+  "scripts": {
+    "server": "nodemon server/index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "start": "node server/index.js",
+    "seed:user": "sequelize seed:generate --name User",
+    "seed:market": "sequelize seed:generate --name Market",
+    "seeding:db": "sequelize db:seed:all"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.2.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "pg": "^8.2.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.10"
+  }
+}
