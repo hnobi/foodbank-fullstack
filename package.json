@@ -4,25 +4,39 @@
   "main": "index.js",
   "repository": "git@github.com:hnobi/foodbank-backend.git",
   "author": "hammed noibi <hnobi08@yahoo.com>",
+  "proxy": "http://localhost:4000",
   "license": "MIT",
   "scripts": {
-    "server": "nodemon server/index.js",
+    "server": "nodemon --exec babel-node server/app",
     "client": "npm run start --prefix client",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "start": "node server/index.js",
+    "start": "nodemon --watch server --exec babel-node server/app",
     "seed:user": "sequelize seed:generate --name User",
     "seed:market": "sequelize seed:generate --name Market",
     "seeding:db": "sequelize db:seed:all"
   },
   "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/polyfill": "^7.8.7",
     "axios": "^0.19.2",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "bcrypt": "^4.0.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "concurrently": "^5.2.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.4",
     "pg": "^8.2.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
   }
 }
