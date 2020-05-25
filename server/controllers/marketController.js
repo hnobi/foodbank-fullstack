@@ -12,7 +12,8 @@ const { Market } = db;
       latitude,
       // images,
     } = req.body;
-    // const { userid } = req.decoded;
+    console.log(req, '---',req.decoded)
+    const { userid } = req.decoded;
 
     Market.create({
       name,
@@ -20,8 +21,8 @@ const { Market } = db;
       address,
       longitude,
       latitude,
-      images:['sss'],
-      userId: 2,
+      images:['sss', 'ddddd'],
+      userId: userid,
     }).then((market) => {
         return res.send({
           message: "successfully created new market",
