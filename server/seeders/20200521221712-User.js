@@ -6,7 +6,7 @@ module.exports = {
         "Users",
         [
           {
-            name: "Test Boy",
+            username: "Test Boy",
             email: "test@theagromall.com",
             password: "password",
             isAdmin: true,
@@ -14,7 +14,7 @@ module.exports = {
             updatedAt: new Date(),
           },
           {
-            name: "Hammed Noibi",
+            username: "Hammed Noibi",
             email: "hammed@theagromall.com",
             password: "password",
             isAdmin: false,
