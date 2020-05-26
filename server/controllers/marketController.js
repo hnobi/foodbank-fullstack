@@ -41,7 +41,7 @@ static async uploadImage(req,res){
         const imgObj = await cloudinary.uploads(path, "foodbankImages");
         imagesUrl.push(imgObj.url);
       } catch (e) {
-        console.log(e);
+        console.log(e.message);
       }
     };
 
