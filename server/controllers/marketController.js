@@ -11,7 +11,7 @@ class MarketController {
       address,
       longitude,
       latitude,
-      images
+      images,
     } = req.body;
 
     const { userid } = req.decoded;
@@ -33,9 +33,8 @@ class MarketController {
       .catch((e) => res.send(e));
   }
 
-
-static async uploadImage(req,res){
-   const imagesUrl = [];
+  static async uploadImage(req, res) {
+    const imagesUrl = [];
     const uploader = async (path) => {
       try {
         const imgObj = await cloudinary.uploads(path, "foodbankImages");
@@ -49,7 +48,7 @@ static async uploadImage(req,res){
 
     for (let file of files) {
       const { path } = file;
-       await uploader(path);
+      await uploader(path);
       fs.unlinkSync(path); // to remove file
     }
 
@@ -57,8 +56,17 @@ static async uploadImage(req,res){
       message: "images uploaded successfully",
       data: imagesUrl,
     });
-}
+  }
 
+  static getAllmarket(req, res) {
+    Market.findAll().then(markets => {
+      
+      return res.status(200).send({
+        message: "Succesfully fetch market list",
+        data: markets,
+      });
+    }).catch(e => console.log(e.message))
+  }
 
 }
 
