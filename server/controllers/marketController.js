@@ -59,15 +59,27 @@ class MarketController {
   }
 
   static getAllmarket(req, res) {
-    Market.findAll().then(markets => {
-      
-      return res.status(200).send({
-        message: "Succesfully fetch market list",
-        data: markets,
-      });
-    }).catch(e => console.log(e.message))
+    Market.findAll()
+      .then((markets) => {
+        return res.status(200).send({
+          message: "Succesfully fetch market list",
+          data: markets,
+        });
+      })
+      .catch((e) => console.log(e.message));
   }
 
+  static getmarketdetails(req, res) {
+
+   return Market.findByPk(req.params.marketId)
+     .then((market) => {
+       return res.status(200).send({
+         message: "Succesfully fetch market",
+         data: market,
+       });
+     })
+     .catch((e) => console.log(e.message));
+  }
 }
 
 export default MarketController;

@@ -16,6 +16,8 @@ router.route("/market")
   .post(authAdminToken, MarketController.addMarket)
   .get(MarketController.getAllmarket);
 
+router.route("/market/:marketId")
+.get(MarketController.getmarketdetails);
 
 
 router.route("/upload")
