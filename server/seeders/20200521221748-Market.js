@@ -1,5 +1,8 @@
 'use strict';
 
+
+// const point = { type: "Point", coordinates: [39.807222, -76.984722] };
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     
@@ -9,6 +12,8 @@ module.exports = {
           {
             name: "Oja oyingbo",
             address: "23, oyingbo street alimosho",
+            longitude: '-87.631234',
+            latitude: '41.123245',
             description: "blah blah",
             userId: 1,
             images: [

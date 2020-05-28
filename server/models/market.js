@@ -8,6 +8,8 @@ module.exports = (sequelize, DataTypes) => {
       userId: DataTypes.INTEGER,
       address: DataTypes.STRING,
       images: DataTypes.ARRAY(DataTypes.STRING),
+      longitude: DataTypes.STRING,
+      latitude: DataTypes.STRING
     },
     {}
   );

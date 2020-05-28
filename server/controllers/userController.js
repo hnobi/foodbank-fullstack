@@ -73,7 +73,7 @@ export default class UserController {
       }
 
       const {  isAdmin, id, email,username } = foundUser;
-      const token = jwt.sign({ isAdmin, userID: id }, process.env.SECRET_KEY, { expiresIn: '24h' });
+      const token = jwt.sign({ isAdmin, userid: id }, process.env.SECRET_KEY, { expiresIn: '24h' });
 
       return res.status(200).send({
         token,

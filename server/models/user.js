@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
 User.hasMany(models.Market, {
   onDelete: "CASCADE",
+  foreignKey: "userId",
 });
   };
 

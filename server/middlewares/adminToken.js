@@ -13,7 +13,7 @@ const authAdminToken = (req, res, next) => {
   const token = req.body.token || req.headers["x-access-token"] || req.query.token;
 
   if (token) {
-    jwt.verify(token, process.env.SECRET, (err, decoded) => {
+    jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
       if (err) {
         return res.status(401).send({
           message: "Token is Invalid or Expired",
